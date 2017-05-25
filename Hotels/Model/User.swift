@@ -14,7 +14,6 @@ class User: Mappable {
     var lastName: String?
     var email: String?
     var username: String?
-    var password: String?
     
     required convenience init?(map: Map) {
         self.init()
@@ -26,7 +25,6 @@ class User: Mappable {
         lastName  <- map[Constants.Keys.User.lastname]
         email     <- map[Constants.Keys.User.email]
         username  <- map[Constants.Keys.User.username]
-        password  <- map[Constants.Keys.User.password]
     }
     
 }

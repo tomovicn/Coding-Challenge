@@ -17,8 +17,8 @@ class UserService {
         self.apiManager = apiManager
     }
     
-    func register(user: User, succes: @escaping (_ user: User) -> Void, failure : @escaping ((String) -> Void)) {
-        apiManager.request(UserRouter.register(user: user)).validate().responseObject { (response: DataResponse<User>) in
+    func register(user: User, password: String, succes: @escaping (_ user: User) -> Void, failure : @escaping ((String) -> Void)) {
+        apiManager.request(UserRouter.register(user: user, password: password)).validate().responseObject { (response: DataResponse<User>) in
             switch response.result {
             case .success(let user):
                 succes(user)
@@ -28,14 +28,14 @@ class UserService {
         }
     }
     
-    func login(user: User, succes: @escaping (_ token: String) -> Void, failure : @escaping ((String) -> Void)) {
-        apiManager.request(UserRouter.login(user: user)).validate().responseJSON { response in
+    func login(user: User, password: String, succes: @escaping (_ token: String) -> Void, failure : @escaping ((String) -> Void)) {
+        apiManager.request(UserRouter.login(user: user, password: password)).validate().responseJSON { response in
             
             switch response.result {
             case .success:
                 if let JSON = response.result.value as? NSDictionary {
                     if let token = JSON[Constants.Keys.User.token] as? String {
-                        UserDefaults.standard.set(token, forKey: Constants.UserDefaults.token)
+                        Keychain.shared[Constants.Keychain.token] = token
                         succes(token)
                     }
                 }

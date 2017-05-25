@@ -10,8 +10,8 @@ import Alamofire
 
 enum UserRouter: URLRequestConvertible {
     
-    case register(user: User)
-    case login(user: User)
+    case register(user: User, password: String)
+    case login(user: User, password: String)
     
     var method: Alamofire.HTTPMethod {
         return .post
@@ -29,10 +29,10 @@ enum UserRouter: URLRequestConvertible {
     
     var parameters: Parameters {
         switch self {
-        case .register(let user):
-            return [Constants.API.Parameters.firstname : user.firstName!, Constants.API.Parameters.lastname : user.lastName!, Constants.API.Parameters.email : user.email!, Constants.API.Parameters.username : user.username!, Constants.API.Parameters.password : user.password!]
-        case .login(let user):
-            return [Constants.API.Parameters.username : user.username!, Constants.API.Parameters.password : user.password!]
+        case .register(let user, let password):
+            return [Constants.API.Parameters.firstname : user.firstName!, Constants.API.Parameters.lastname : user.lastName!, Constants.API.Parameters.email : user.email!, Constants.API.Parameters.username : user.username!, Constants.API.Parameters.password : password]
+        case .login(let user, let password):
+            return [Constants.API.Parameters.username : user.username!, Constants.API.Parameters.password : password]
         }
     }
     

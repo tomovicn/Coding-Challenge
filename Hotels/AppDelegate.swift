@@ -43,9 +43,9 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         
         let storyboard = SwinjectStoryboard.create(name: "Main", bundle: nil, container: container)
         
-//        UserDefaults.standard.set("fc6de7f1196b776fad0929fd44a5b93eb77aa4c3", forKey: Constants.UserDefaults.token)
+//        Keychain.shared[Constants.Keychain.token] = "fc6de7f1196b776fad0929fd44a5b93eb77aa4c3"
         
-        if UserDefaults.standard.string(forKey: Constants.UserDefaults.token) == nil {
+        if Keychain.shared[Constants.Keychain.token] == nil {
             window.rootViewController = storyboard.instantiateInitialViewController()
         } else {
             window.rootViewController = storyboard.instantiateViewController(withIdentifier: "TabBarController")

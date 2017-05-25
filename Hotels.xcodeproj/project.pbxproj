@@ -28,6 +28,7 @@
 		9A169A761EB2042700BB3138 /* HotelCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A169A751EB2042700BB3138 /* HotelCell.swift */; };
 		9A169A781EB2146800BB3138 /* AddHotelController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A169A771EB2146800BB3138 /* AddHotelController.swift */; };
 		9A169A7A1EB22AAD00BB3138 /* ReviewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A169A791EB22AAD00BB3138 /* ReviewCell.swift */; };
+		9A1FF1731ED6E5D70054062F /* Keychain.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A1FF1721ED6E5D70054062F /* Keychain.swift */; };
 		9AF54B281ED5BDCF0012DADD /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 9AF54B271ED5BDCF0012DADD /* Assets.xcassets */; };
 		9AF54B2A1ED5BDD80012DADD /* Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 9AF54B291ED5BDD80012DADD /* Info.plist */; };
 		D826FA94064732D30FF1D7AF /* Pods_Hotels.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4634B395508176536B5EA404 /* Pods_Hotels.framework */; };
@@ -81,6 +82,7 @@
 		9A169A751EB2042700BB3138 /* HotelCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HotelCell.swift; sourceTree = "<group>"; };
 		9A169A771EB2146800BB3138 /* AddHotelController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AddHotelController.swift; sourceTree = "<group>"; };
 		9A169A791EB22AAD00BB3138 /* ReviewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ReviewCell.swift; sourceTree = "<group>"; };
+		9A1FF1721ED6E5D70054062F /* Keychain.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Keychain.swift; sourceTree = "<group>"; };
 		9AF54B271ED5BDCF0012DADD /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; name = Assets.xcassets; path = Hotels/Assets.xcassets; sourceTree = SOURCE_ROOT; };
 		9AF54B291ED5BDD80012DADD /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = Info.plist; path = Hotels/Info.plist; sourceTree = SOURCE_ROOT; };
 		A7A8A48198CC3828CFB5FE67 /* Pods_HotelsTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_HotelsTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -267,6 +269,7 @@
 			children = (
 				9A169A661EB1CC1600BB3138 /* Constants.swift */,
 				9A169A681EB1D6C600BB3138 /* Extensions.swift */,
+				9A1FF1721ED6E5D70054062F /* Keychain.swift */,
 			);
 			path = Helpers;
 			sourceTree = "<group>";
@@ -570,6 +573,7 @@
 				9A169A651EB1CB2200BB3138 /* User.swift in Sources */,
 				9A169A781EB2146800BB3138 /* AddHotelController.swift in Sources */,
 				9A169A691EB1D6C600BB3138 /* Extensions.swift in Sources */,
+				9A1FF1731ED6E5D70054062F /* Keychain.swift in Sources */,
 				9A169A711EB1F70B00BB3138 /* Hotel.swift in Sources */,
 				9A169A5E1EB1CA8100BB3138 /* HotelsService.swift in Sources */,
 				9A169A731EB1FAA200BB3138 /* Review.swift in Sources */,

@@ -13,7 +13,7 @@ struct Constants {
     struct API {
         
         struct Endpoints {
-            static let baseUrl = "http://hotels.api" //"http://54.77.217.126:8080/"
+            static let baseUrl = "http://hotels.api"
             
             struct User {
                 static let register = "register/"
@@ -95,7 +95,7 @@ struct Constants {
         
     }
     
-    struct UserDefaults {
+    struct Keychain {
         static let token = "token"
         
     }

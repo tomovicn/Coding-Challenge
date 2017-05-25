@@ -30,7 +30,7 @@ class AuthRequestAdapter: RequestAdapter {
         
         if (urlRequest.url!.lastPathComponent != "register") &&
             (urlRequest.url!.lastPathComponent != "api-token-auth") {
-            urlRequest.addValue("Token " + UserDefaults.standard.string(forKey: Constants.UserDefaults.token)!, forHTTPHeaderField:Constants.API.Headers.authorization)
+            urlRequest.addValue("Token " + Keychain.shared[Constants.Keychain.token]!, forHTTPHeaderField:Constants.API.Headers.authorization)
         }
         //urlRequest.addValue(Constants.API.Headers.applicationJson, forHTTPHeaderField:Constants.API.Headers.contentType)
         return urlRequest

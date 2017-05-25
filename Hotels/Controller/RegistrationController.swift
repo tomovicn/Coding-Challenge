@@ -36,7 +36,7 @@ class RegistrationController: UITableViewController {
     
     func register() {
         showProgressHUD()
-        userService?.register(user: user, succes: { [weak self] (user) in
+        userService?.register(user: user, password: txtFieldPassword.text!, succes: { [weak self] (user) in
             self?.hideProgressHUD()
             self?.login()
         }, failure: { [weak self] (error) in
@@ -47,7 +47,7 @@ class RegistrationController: UITableViewController {
     
     func login() {
         showProgressHUD()
-        userService?.login(user: user, succes: { [weak self] (token) in
+        userService?.login(user: user, password: txtFieldPassword.text!, succes: { [weak self] (token) in
             self?.hideProgressHUD()
             self?.performSegue(withIdentifier: Constants.Segue.showHotels, sender: self)
         }, failure: { [weak self] (error) in
@@ -88,7 +88,7 @@ class RegistrationController: UITableViewController {
             errorFields.append("username")
         }
         if let password = txtFieldPassword.text, password != "" {
-            user.password = password
+            
         } else {
             isFilled = false
             errorFields.append("password")
