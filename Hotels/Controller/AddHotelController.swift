@@ -18,7 +18,7 @@ class AddHotelController: UITableViewController {
     @IBOutlet weak var txtFieldStars: UITextField!
 
     private var hotel = Hotel()
-    var hotelsService: HotelsService?
+    var hotelsService: HotelsService!
     
     
     override func viewDidLoad() {
@@ -34,13 +34,13 @@ class AddHotelController: UITableViewController {
         view.endEditing(true)
         if checkFields() {
             showProgressHUD()
-            hotelsService?.addHotel(hotel: hotel, succes: {[unowned self] (hotel) in
-                self.hideProgressHUD()
-                self.showDialog("Succes", message: "Dodali ste hotel", cancelButtonTitle: "OK")
+            hotelsService.addHotel(hotel: hotel, succes: {[weak self] (hotel) in
+                self?.hideProgressHUD()
+                self?.showDialog("Succes", message: "Dodali ste hotel", cancelButtonTitle: "OK")
                 
-            }, failure: {[unowned self] (error) in
-                self.hideProgressHUD()
-                self.showDialog("", message: error, cancelButtonTitle: "OK")
+            }, failure: {[weak self] (error) in
+                self?.hideProgressHUD()
+                self?.showDialog("", message: error, cancelButtonTitle: "OK")
             })
         }
     }

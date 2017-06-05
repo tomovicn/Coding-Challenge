@@ -46,7 +46,7 @@ class HotelsController: UIViewController {
     var isDataSourceFetched = false
     var isFavoriteHotelsFetched = false
     
-    var hotelsService: HotelsService?
+    var hotelsService: HotelsService!
     var selectedIndex: Int? {
         didSet {
             if let previous = oldValue {
@@ -75,35 +75,35 @@ class HotelsController: UIViewController {
     
     //Fetching data
     func getDataSource() {
-        hotelsService?.getHotels(succes: { [unowned self] (hotels) in
-            self.hotels = hotels
-            self.isDataSourceFetched = true
-            self.isFetchingFinished()
-        }, failure: { [unowned self] (error) in
-            self.hideProgressHUD()
-            self.showDialog("", message: error, cancelButtonTitle: "OK")
+        hotelsService.getHotels(succes: { [weak self] (hotels) in
+            self?.hotels = hotels
+            self?.isDataSourceFetched = true
+            self?.isFetchingFinished()
+        }, failure: { [weak self] (error) in
+            self?.hideProgressHUD()
+            self?.showDialog("", message: error, cancelButtonTitle: "OK")
         })
     }
     
     func getFavorites() {
-        hotelsService?.getFavorites(succes: { [unowned self] (hotels) in
-                self.favoriteHotels = hotels
-                self.isFavoriteHotelsFetched = true
-                self.isFetchingFinished()
-            }, failure: { [unowned self] (error) in
-                self.hideProgressHUD()
-                self.showDialog("", message: error, cancelButtonTitle: "OK")
+        hotelsService.getFavorites(succes: { [weak self] (hotels) in
+                self?.favoriteHotels = hotels
+                self?.isFavoriteHotelsFetched = true
+                self?.isFetchingFinished()
+            }, failure: { [weak self] (error) in
+                self?.hideProgressHUD()
+                self?.showDialog("", message: error, cancelButtonTitle: "OK")
         })
     }
     
     func getReviews(id: Int) {
         showProgressHUD()
-        hotelsService?.getHotelReviews(id: id, succes: {[unowned self] (reviews) in
-            self.hideProgressHUD()
-            self.reviews = reviews
-        }, failure: {[unowned self] (error) in
-            self.hideProgressHUD()
-            self.showDialog("", message: error, cancelButtonTitle: "OK")
+        hotelsService?.getHotelReviews(id: id, succes: {[weak self] (reviews) in
+            self?.hideProgressHUD()
+            self?.reviews = reviews
+        }, failure: {[weak self] (error) in
+            self?.hideProgressHUD()
+            self?.showDialog("", message: error, cancelButtonTitle: "OK")
         })
     }
     

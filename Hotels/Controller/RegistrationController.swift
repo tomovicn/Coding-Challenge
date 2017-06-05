@@ -16,7 +16,7 @@ class RegistrationController: UITableViewController {
     @IBOutlet weak var txtFieldUsername: UITextField!
     @IBOutlet weak var txtFieldPassword: UITextField!
     
-    var userService: UserService?
+    var userService: UserService!
     private var user = User()
     
     override func viewDidLoad() {
@@ -36,7 +36,7 @@ class RegistrationController: UITableViewController {
     
     func register() {
         showProgressHUD()
-        userService?.register(user: user, password: txtFieldPassword.text!, succes: { [weak self] (user) in
+        userService.register(user: user, password: txtFieldPassword.text!, succes: { [weak self] (user) in
             self?.hideProgressHUD()
             self?.login()
         }, failure: { [weak self] (error) in
@@ -47,7 +47,7 @@ class RegistrationController: UITableViewController {
     
     func login() {
         showProgressHUD()
-        userService?.login(user: user, password: txtFieldPassword.text!, succes: { [weak self] (token) in
+        userService.login(user: user, password: txtFieldPassword.text!, succes: { [weak self] (token) in
             self?.hideProgressHUD()
             self?.performSegue(withIdentifier: Constants.Segue.showHotels, sender: self)
         }, failure: { [weak self] (error) in
